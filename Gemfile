@@ -50,6 +50,7 @@ group :development, :test do
   gem 'sqlite3'
 	gem 'shoulda-matchers'
   gem 'quiet_assets'
+  gem 'launchy'
 end
 
 group :development do
