@@ -50,3 +50,22 @@ RSpec.configure do |config|
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
 end
+
+module Capybara
+  class Session
+    def has_image?(src)
+      has_xpath?("//img[contains(@src,\"#{src}\")]")
+    end
+  end
+end
+
+require 'active_support/test_case'
+require 'shoulda/matchers'
+
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+
+    with.library :rails
+  end
+end
